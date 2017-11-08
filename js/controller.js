@@ -9,7 +9,6 @@ angular.module('mynltkchat')
         }
 
         $scope.clickres = function(res) {
-            console.log('here');
             $scope.bot = $scope.bot + "<div class='calloutbig'><img src='img/logo220.png' width='45px' height='45px' class='circular--square imgleft' /><div class='calloutright'>" + res + "</div></div>"
         }
 
@@ -22,6 +21,6 @@ angular.module('mynltkchat')
         }, 4000)
 
         $timeout(function () {
-            $scope.bot = $scope.bot + "<div class='calloutbigres'><div class='resops'><a ng-click='clickres()'>Good</a></div><div class='resops'>Not So Good</div><div class='resops'>Bad</div></div>";
+            $scope.bot = $scope.bot + "<div class='calloutbigres'><div class='resops'><a ng-click=clickres('Good')>Good</a></div><div class='resops'>Not So Good</div><div class='resops'>Bad</div></div>";
         }, 5000)
     }])
