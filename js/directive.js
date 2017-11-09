@@ -14,3 +14,11 @@ angular.module('mynltkchat')
         );
         };
     }])
+    .directive('botTalk', function() {
+        return {
+        restrict: 'E',
+        transclude: false,  
+        scope: {botline: '=cline'},  
+        template: "<div class='calloutbig'><img src='img/logo220.png' width='45px' height='45px' class='circular--square imgright' /><div class='calloutleft'>{{botline}}</div></div>"
+        };
+      });

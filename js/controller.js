@@ -13,7 +13,8 @@ angular.module('mynltkchat')
         }
 
         $timeout(function () {
-            $scope.bot = "<div class='calloutbig'><img src='img/logo220.png' width='45px' height='45px' class='circular--square imgright' /><div class='calloutleft'>welcome</div></div>";
+            //$scope.bot = "<div class='calloutbig'><img src='img/logo220.png' width='45px' height='45px' class='circular--square imgright' /><div class='calloutleft'>welcome</div></div>";
+            $scope.bot = "<bot-talk sline='Welcome'></bot-talk>";
         }, 2000)
 
         $timeout(function () {
