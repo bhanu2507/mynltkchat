@@ -16,9 +16,32 @@ angular.module('mynltkchat')
     }])
     .directive('botTalk', function() {
         return {
-        restrict: 'E',
-        transclude: false,  
-        scope: {botline: '=cline'},  
+        restrict: 'EA',  
+        replace: true,
+        scope: {botline: '@cline'},  
         template: "<div class='calloutbig'><img src='img/logo220.png' width='45px' height='45px' class='circular--square imgright' /><div class='calloutleft'>{{botline}}</div></div>"
         };
-      });
+    })
+    .directive('options', function() {
+        return {
+        restrict: 'EA',  
+        replace: true,
+        scope: {opts1: '=cline', bot: '=bot'},  
+        templateUrl: "../options.html",
+        controller: function($scope, $sce) {
+            $scope.clickres = function(res) {
+                //$scope.bot = $scope.bot + "<div class='calloutbig'><img src='img/logo220.png' width='45px' height='45px' class='circular--square imgleft' /><div class='calloutright'>" + res + "</div></div>"
+                console.log(res);
+                $scope.bot = $scope.bot + $sce.trustAsHtml("<user-talk cline=" + res +"></user-talk>");
+            }
+        }
+        };
+    })
+    .directive('userTalk', function() {
+        return {
+        restrict: 'EA',  
+        replace: true,
+        scope: {usrline: '@cline'},  
+        template: "<div class='calloutbig'><img src='img/logo220.png' width='45px' height='45px' class='circular--square imgleft' /><div class='calloutright'>{{usrline}}</div></div>"
+        };
+    });  
