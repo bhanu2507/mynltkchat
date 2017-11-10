@@ -26,13 +26,14 @@ angular.module('mynltkchat')
         return {
         restrict: 'EA',  
         replace: true,
-        scope: {opts1: '=cline', bot: '=bot'},  
+        scope: {opts1: '=cline', bot: '=bot', usrselect: '=usrselect'},   
         templateUrl: "../options.html",
         controller: function($scope, $sce) {
             $scope.clickres = function(res) {
                 //$scope.bot = $scope.bot + "<div class='calloutbig'><img src='img/logo220.png' width='45px' height='45px' class='circular--square imgleft' /><div class='calloutright'>" + res + "</div></div>"
                 console.log(res);
                 $scope.bot = $scope.bot + $sce.trustAsHtml("<user-talk cline=" + res +"></user-talk>");
+                $scope.usrselect = false;
             }
         }
         };

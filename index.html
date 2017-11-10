@@ -20,11 +20,13 @@
         </md-toolbar>
     <div id="bot" class="botclass" compile="bot"></div>
     <div class='console'>
-        <form ng-submit="bclick()">
+        <form ng-submit="bclick()" ng-show="txtentry">
         <md-input-container>
             <input ng-model="chatline" aria-label="chatline">
         </md-input-container>
          </form>
+         <div id="soptions" compile="soptions" ng-show="usrselect">
+         </div>
         <!--md-input-container>
             <md-button class="md-fab" aria-label="Comment" ng-click=bclick()>
                 <md-icon md-svg-src="img/icons/ic_chat_black_24px.svg"></md-icon>
