@@ -31,7 +31,7 @@ angular.module('mynltkchat')
         controller: function($scope, $sce) {
             $scope.clickres = function(res) {
                 //$scope.bot = $scope.bot + "<div class='calloutbig'><img src='img/logo220.png' width='45px' height='45px' class='circular--square imgleft' /><div class='calloutright'>" + res + "</div></div>"
-                console.log(res);
+                //console.log(res);
                 $scope.bot = $scope.bot + $sce.trustAsHtml("<user-talk cline=" + res +"></user-talk>");
                 $scope.usrselect = false;
             }

@@ -1,7 +1,10 @@
 'use strict';
 
 angular.module('mynltkchat')
-    .controller('mnc_ctrl',['$scope','mncservice', '$timeout', '$sce', function($scope, mncservice, $timeout, $sce) {
+    .controller('mnc_ctrl',['$scope','mncservice', '$timeout', '$sce', '$firebaseArray', function($scope, mncservice, $timeout, $sce, $firebaseArray) {
+        let ref = firebase.database().ref();
+        let list = $firebaseArray(ref);
+        console.log(list);
 
         $scope.bclick = function() {
             $scope.bot = $scope.bot + $sce.trustAsHtml("<user-talk cline=" + $scope.chatline +"></user-talk>");
