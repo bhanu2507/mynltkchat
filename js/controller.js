@@ -4,7 +4,15 @@ angular.module('mynltkchat')
     .controller('mnc_ctrl',['$scope','mncservice', '$timeout', '$sce', '$firebaseArray', function($scope, mncservice, $timeout, $sce, $firebaseArray) {
         let ref = firebase.database().ref();
         let list = $firebaseArray(ref);
-        console.log(list);
+        list.$loaded().then(function() {
+            $scope.list = [];
+            angular.forEach(list, function(value,key){
+               $scope.list.push({ id: key, data: value})
+            })
+            console.log($scope.list[0].data[1]);
+         });
+
+        //console.log($scope.list);
 
         $scope.bclick = function() {
             $scope.bot = $scope.bot + $sce.trustAsHtml("<user-talk cline=" + $scope.chatline +"></user-talk>");
