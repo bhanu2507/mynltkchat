@@ -63,6 +63,6 @@ angular.module('mynltkchat')
         restrict: 'EA',  
         replace: true,
         scope: {usrline: '@cline'},  
-        template: "<div class='calloutbig'><img src='img/logo220.png' width='45px' height='45px' class='circular--square imgleft' /><div class='calloutright'>{{usrline}}</div></div>"
+        template: "<div class='calloutbig'><img src='img/user.png' width='45px' height='45px' class='circular--square imgleft' /><div class='calloutright'>{{usrline}}</div></div>"
         };
     });  
