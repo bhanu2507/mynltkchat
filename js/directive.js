@@ -30,7 +30,7 @@ angular.module('mynltkchat')
         templateUrl: "../options.html",
         controller: function($scope, $sce, mncservice, $timeout) {
             $scope.clickres = function(res) {
-                $scope.bot = $scope.bot + $sce.trustAsHtml("<user-talk cline=" + res +"></user-talk>");
+                $scope.bot = $scope.bot + $sce.trustAsHtml("<user-talk cline='" + res + "'></user-talk>");
                 $scope.usrselect = false;
                 for (let i=0;i<mncservice.plist.length;i++) {
                     if (mncservice.plist[i].intent!=undefined && mncservice.plist[i].intent == res){

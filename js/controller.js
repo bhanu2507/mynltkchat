@@ -31,7 +31,7 @@ angular.module('mynltkchat')
                 }
 
             })
-
+        $scope.obj = {data: $scope.list, options: { mode: 'tree' }};
         $scope.bclick = function() {
             $scope.bot = $scope.bot + $sce.trustAsHtml("<user-talk cline=" + $scope.chatline +"></user-talk>");
         }

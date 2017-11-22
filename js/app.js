@@ -8,6 +8,8 @@ angular.module('mynltkchat', [
     'ngSanitize',
     'firebase'
 ]);
+
+
 angular.module('mynltkchat')
     .config(function() {
         var config = {
