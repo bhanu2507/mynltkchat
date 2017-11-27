@@ -36,3 +36,24 @@ angular.module('mynltkchat')
             $scope.bot = $scope.bot + $sce.trustAsHtml("<user-talk cline=" + $scope.chatline +"></user-talk>");
         }
     }])
+    .controller('MainViewCtrl',['$scope','$filter','mncservice', function($scope, $filter, mncservice) {
+        // example JSON
+        /* $scope.jsonData = {
+            Name: "Joe", "Last Name": "Miller", Address: {Street: "Neverland 42"}, Hobbies: ["doing stuff", "dreaming"]
+        }; */
+        mncservice.flist(function(list){
+            $scope.jsonData = list[0].data;;
+
+            $scope.$watch('jsonData', function(json) {
+                $scope.jsonString = $filter('json')(json);
+            }, true);
+            $scope.$watch('jsonString', function(json) {
+                try {
+                    $scope.jsonData = JSON.parse(json);
+                    $scope.wellFormed = true;
+                } catch(e) {
+                    $scope.wellFormed = false;
+                }
+            }, true);
+        });
+    }])

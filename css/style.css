@@ -3,7 +3,7 @@
     padding: 20px; 
     width: 100%;
     resize: horizontal;
-    overflow: auto;
+    /* overflow: auto; */
     height:92vh;
 }
 .resizable1 {

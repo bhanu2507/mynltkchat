@@ -6,7 +6,8 @@ angular.module('mynltkchat', [
     'ngAria',
     'ngAnimate',
     'ngSanitize',
-    'firebase'
+    'firebase',
+    'ui.sortable'
 ]);
 
 
